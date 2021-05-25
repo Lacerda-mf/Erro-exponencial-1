@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int contador;
+double resultado;
+int n;
+double sn;
+double xis;
+
+main()
+{
+	for(xis =1;xis<=70;xis++)
+	{
+		sn=1;
+		resultado = 0;
+		for(contador=1;contador<200;contador++)
+			{	
+				n = contador;
+				sn = -sn * (xis / n);
+				resultado = resultado + sn;	
+			}
+		printf("\n %.15g \n", resultado+1);
+	}
+	system("pause");
+}

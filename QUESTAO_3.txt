@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+double resultado;
+int contador;
+int n;
+double xis;
+double fat;
+double m;
+FILE *file;
+
+main()
+{
+	file = fopen("dados_exponencial(+somatorio).txt", "w");
+	for(xis =0; xis<= 70; xis=xis+1)// variando o x
+	{
+		resultado = 1;
+		for(contador = 1;contador < 200;contador++)// somatorio
+		{
+			n = contador;
+			for(fat = 1; n > 1; n--) // fatorial
+			{
+				fat = n * fat;
+			}
+			n = contador;
+			m = (pow(xis,n) / fat); // formula matematica;
+			resultado = resultado + m;
+		}
+		fprintf(file,"\n %.15g \n",1/resultado);
+	}
+	fclose(file);
+	system("pause");
+}

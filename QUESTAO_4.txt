@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int contador;
+double resultado;
+int n;
+double sn;
+double xis;
+FILE *file;
+main()
+{
+	file = fopen("dados_exponencial(recorrencia).txt", "w");
+	for(xis =1;xis<=70;xis++)
+	{
+		sn=1;
+		resultado = 0;
+		for(contador=1;contador<200;contador++)
+			{	
+				n = contador;
+				sn = sn * (xis / n);
+				resultado = resultado + sn;	
+			}
+		fprintf(file,"\n %.15g \n", 1/(resultado+1));
+	}
+	fclose(file);
+	system("pause");
+}
